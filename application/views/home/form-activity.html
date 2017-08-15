@@ -1,0 +1,41 @@
+<form id="form-activity">
+	<div class="form-group">
+  	<label for="name" class="form-control-label">Nome:</label>
+  	<input type="text" class="form-control" id="name" name="name" value="<?php isset($data_edit['name']) ? print $data_edit['name'] : '';?>">
+	</div>
+
+	<div class="form-group">
+  	<label for="description" class="form-control-label">Descrição:</label>
+  	<textarea class="form-control" id="description" name="description"><?php isset($data_edit['description']) ? print $data_edit['description'] : '';?></textarea>
+	</div>
+
+	<div class="form-group date">
+    <label for="begin_date" class="control-label">Data Início</label>
+    <input class="input-date form-control" id="begin-date" name="begin_date" value="<?php isset($data_edit['begin_date']) ? print $data_edit['begin_date'] : '';?>"  placeholder="dd/mm/aaaa" type="text"/>
+  </div>
+
+  <div class="form-group date">
+    <label for="end_date" class="control-label">Data Fim</label>
+    <input class="input-date form-control" id="end-date" name="end_date" value="<?php isset($data_edit['end_date']) ? print $data_edit['end_date'] : '';?>" placeholder="dd/mm/aaaa" type="text"/>
+  </div>
+
+  <div class="form-group">
+  	<label for="status">Status</label>
+  	<select class="form-control" name="status" id="status">
+      <?php foreach($data_status as $status): ?>
+    	  <option value="<?php print $status['sid']?>" <?php isset($status['selected']) ? print 'selected' : ''; ?>><?php print $status['description']?></option>
+      <?php endforeach;?>
+  	</select>
+	</div>
+
+  <div class="form-group">
+    <div class="radio-left">
+      <label><input type="radio" name="situation" value="1" <?php !empty($data_edit['situation']) ? print 'checked' : ''; ?>> Ativo</label>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="situation" value="0" <?php empty($data_edit['situation']) ? print 'checked' : ''; ?>> Inativo</label>
+    </div>
+  </div>
+
+  <input type="submit" name="submit" class="save btn btn-success" value="Salvar" />
+</form>

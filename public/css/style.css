@@ -1,0 +1,21 @@
+.navbar {
+	background-color: #1d4870;
+}
+
+.navbar a {
+	color: #ffffff;
+}
+
+label.error {
+	color:#a94442;
+}
+
+.radio-left {
+	float: left;
+    padding-right: 20px;
+}
+
+#situation-error {
+	position: absolute;
+    margin-left: 140px;
+}

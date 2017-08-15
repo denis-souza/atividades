@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title><?php print $title;?></title>
+
+    <?php foreach ($assets['css'] as $value): ?>
+			<link rel="stylesheet" type="text/css" href="<?php echo $value;?>">
+		<?php endforeach ?>
+
+		<?php foreach ($assets['js'] as $value): ?>
+			<script type="text/javascript" src="<?php echo $value;?>"></script>
+		<?php endforeach ?>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-toggleable-md fixed-top">
+     	<a class="navbar-brand" href="#">Lista de Atividades</a>
+    </nav>
+
+    <div class="jumbotron">
+      <div class="container">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Filtrar</a>
+      </div>
+    </div>
+
+    <div class="container list">
+      <div class="row">
+        <div class="col-md-12 table-responsive">
+          <table class="table">
+					  <thead>
+					    <tr>
+					    	<?php foreach($data_list['headers'] as $header): ?>
+					      	<th><?php print $header?></th>					      	
+					      <?php endforeach;?>
+					    </tr>
+					  </thead>
+					  <tbody>
+					  	<?php foreach($data_list['list'] as $items): ?>
+						    <tr>
+					  			<?php foreach($items as $item): ?>
+						      	<?php if(next($items)): ?>
+						      		<td><?php print $item;?></td>
+						      	<?php else: ?>
+						      		<td><a class="edit-activity" data-aid="<?php print $item; ?>" href="<?php print $item; ?>">Edita</a></td>
+						      	<?php endif;?>
+						    	<?php endforeach;?>
+						    </tr>
+					    <?php endforeach;?>
+					  </tbody>
+					</table>
+        </div>
+      </div>
+
+      <div class="container">
+      	<div class="row">
+      		<button class="add-activity btn btn-success">Adicionar Atividade</button>
+      	</div>
+    	</div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2017</p>
+      </footer>
+    </div>
+
+    <div class="modal fade" id="addActivityModal" tabindex="-1" role="dialog" aria-labelledby="addActivityModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+	    	<div class="modal-content">
+	      	
+	      	<div class="modal-header">
+	        	<h5 class="modal-title" id="addActivityModalLabel">Nova Atividade</h5>
+	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          	<span aria-hidden="true">&times;</span>
+	        	</button>
+	      	</div>
+	      
+	      	<div class="modal-body">
+	      		Carregando...       	
+	      	</div>
+	    	</div>
+	  	</div>
+	  </div>
+
+    
+  </body>
+</html>
